@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxisfu3nbk8o0"]
+
+[ext_resource type="PackedScene" uid="uid://kldn5xd2o701" path="res://scenes/ui/player_health_bar.tscn" id="1_87so5"]
+[ext_resource type="PackedScene" uid="uid://bv2gv2n1jc4h1" path="res://scenes/ui/ui_heart.tscn" id="2_50hgc"]
+[ext_resource type="PackedScene" uid="uid://bredlxvx30too" path="res://scenes/ui/equipped_item_ui.tscn" id="3_6af1s"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="PlayerHealthBar" parent="." instance=ExtResource("1_87so5")]
+heartScene = ExtResource("2_50hgc")
+
+[node name="EquippedItemUi" parent="." instance=ExtResource("3_6af1s")]
+offset_left = 6.0
+offset_top = 52.0
+offset_right = -1210.0
+offset_bottom = -604.0

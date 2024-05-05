@@ -1,0 +1,165 @@
+[gd_scene load_steps=10 format=3 uid="uid://byrqf8odupt22"]
+
+[ext_resource type="Script" path="res://scripts/interactable_objects/Chest.cs" id="1_of5e6"]
+[ext_resource type="Texture2D" uid="uid://bi8cnxthtnm5n" path="res://assets/tiles/tilesets/TilesetElement.png" id="2_lksss"]
+[ext_resource type="PackedScene" uid="uid://dno1eqh0g7gkl" path="res://scenes/components/interaction_area_component.tscn" id="3_n6l68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkolq"]
+size = Vector2(9, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0uta"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldk24"]
+size = Vector2(14, 10)
+
+[sub_resource type="Animation" id="Animation_3r8gn"]
+resource_name = "Open"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ChestSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(97, 0, 14, 16), Rect2(113, 0, 14, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ItemSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -4), Vector2(0, -24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ItemSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../OpenChestCollision:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xbgb1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ChestSprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(97, 0, 14, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../OpenChestCollision:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2twl0"]
+_data = {
+"Open": SubResource("Animation_3r8gn"),
+"RESET": SubResource("Animation_xbgb1")
+}
+
+[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("itemSprite", "animationPlayer") groups=["Chests"]]
+process_mode = 3
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_of5e6")
+itemSprite = NodePath("ItemSprite")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="ChestSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_lksss")
+region_enabled = true
+region_rect = Rect2(97, 0, 14, 16)
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+texture_filter = 1
+position = Vector2(0, -24)
+
+[node name="InteractionAreaComponent" parent="." instance=ExtResource("3_n6l68")]
+position = Vector2(-1, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionAreaComponent"]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_rkolq")
+
+[node name="OpenChestCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_b0uta")
+disabled = true
+
+[node name="ClosedChestCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ldk24")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ClosedChestCollision")
+libraries = {
+"": SubResource("AnimationLibrary_2twl0")
+}

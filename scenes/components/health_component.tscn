@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8v8ifflbi5en"]
+
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.cs" id="1_2cc1s"]
+[ext_resource type="PackedScene" uid="uid://db1ahfoj2ryf5" path="res://scenes/effects/smoke_effect.tscn" id="2_3w1n5"]
+
+[node name="HealthComponent" type="Node"]
+script = ExtResource("1_2cc1s")
+smokeEffectScene = ExtResource("2_3w1n5")

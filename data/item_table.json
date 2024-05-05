@@ -1,0 +1,12 @@
+{
+  "1": {
+    "name": "bomb_bag",
+    "scenePath": "res://scenes/items/bomb_bag.tscn",
+    "spritePath": "res://assets/items/inventory/bomb.png"
+  },
+  "2": {
+    "name": "boomerang",
+    "scenePath": "res://scenes/items/boomerang_controller.tscn",
+    "spritePath": "res://assets/items/inventory/boomerang.png"
+  }
+}

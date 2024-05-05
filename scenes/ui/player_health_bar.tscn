@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://kldn5xd2o701"]
+
+[ext_resource type="Script" path="res://scripts/ui/PlayerHealthBar.cs" id="1_8q0st"]
+[ext_resource type="Texture2D" uid="uid://da720v7tslvgi" path="res://assets/hud/heart.png" id="2_fiol0"]
+[ext_resource type="Script" path="res://scripts/ui/UiHeart.cs" id="3_p1oix"]
+
+[sub_resource type="Animation" id="Animation_72j8j"]
+resource_name = "Empty"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_qcanw"]
+resource_name = "Filled"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fkd4r"]
+resource_name = "HalfFilled"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ney75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pq35f"]
+_data = {
+"Empty": SubResource("Animation_72j8j"),
+"Filled": SubResource("Animation_qcanw"),
+"HalfFilled": SubResource("Animation_fkd4r"),
+"RESET": SubResource("Animation_ney75")
+}
+
+[sub_resource type="PackedScene" id="PackedScene_uhnlo"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("UiHeart", "position", "scale", "texture", "hframes", "script", "animationPlayer", "Sprite2D", "AnimationPlayer", "libraries"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 7, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 1073741830, 5, 0, 0, 0, 8, 8, -1, 1, 9, 6, 0),
+"variants": [Vector2(16, 16), Vector2(2, 2), ExtResource("2_fiol0"), 5, ExtResource("3_p1oix"), NodePath("AnimationPlayer"), {
+"": SubResource("AnimationLibrary_pq35f")
+}],
+"version": 3
+}
+
+[node name="PlayerHealthBar" type="Control" node_paths=PackedStringArray("container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8q0st")
+heartScene = SubResource("PackedScene_uhnlo")
+container = NodePath("MarginContainer/HBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 52

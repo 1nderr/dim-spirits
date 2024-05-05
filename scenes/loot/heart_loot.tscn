@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbtfuho3uwtou"]
+
+[ext_resource type="Script" path="res://scripts/loot/HeartLoot.cs" id="1_0grg0"]
+[ext_resource type="Texture2D" uid="uid://da720v7tslvgi" path="res://assets/hud/heart.png" id="2_mcngd"]
+[ext_resource type="PackedScene" uid="uid://cxegmxwnhyheu" path="res://scenes/effects/sprite_flash_effect.tscn" id="2_oh85c"]
+[ext_resource type="PackedScene" uid="uid://d5tbb7xpv7rq" path="res://scenes/components/pickup_component.tscn" id="2_qgk2f"]
+
+[node name="HeartLoot" type="Node2D"]
+script = ExtResource("1_0grg0")
+healAmount = 1
+
+[node name="SpriteFlashEffect" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_oh85c")]
+sprite = NodePath("../Sprite2D")
+
+[node name="PickupComponent" parent="." node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("2_qgk2f")]
+spriteFlashEffect = NodePath("../SpriteFlashEffect")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_mcngd")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

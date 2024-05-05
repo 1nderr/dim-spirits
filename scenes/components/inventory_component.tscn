@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhgg1hxkth7vv"]
+
+[ext_resource type="Script" path="res://scripts/components/InventoryComponent.cs" id="1_yiw08"]
+[ext_resource type="PackedScene" uid="uid://ddrsd1y1pgdip" path="res://scenes/ui/inventory_ui.tscn" id="2_8rbm6"]
+
+[node name="InventoryComponent" type="Node2D"]
+script = ExtResource("1_yiw08")
+inventoryUiScene = ExtResource("2_8rbm6")

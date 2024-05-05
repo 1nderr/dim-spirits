@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddrsd1y1pgdip"]
+
+[ext_resource type="Script" path="res://scripts/ui/InventoryUi.cs" id="1_xqjdq"]
+[ext_resource type="PackedScene" uid="uid://cmh3xt27plcxe" path="res://scenes/ui/inventory_card.tscn" id="2_2lhd8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3fa4"]
+bg_color = Color(0, 0, 0, 0.607843)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_j4rvq"]
+font_size = 20
+
+[node name="InventoryUI" type="CanvasLayer" node_paths=PackedStringArray("gridContainer")]
+process_mode = 3
+script = ExtResource("1_xqjdq")
+inventoryCardScene = ExtResource("2_2lhd8")
+gridContainer = NodePath("MarginContainer/MarginContainer/MarginContainer/GridContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -224.0
+offset_right = 148.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3fa4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 12
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_j4rvq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(168, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 12
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+columns = 12
