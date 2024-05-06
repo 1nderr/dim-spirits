@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://dfc1406gxa2md"]
+[gd_scene load_steps=43 format=3 uid="uid://dfc1406gxa2md"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/Player.cs" id="1_2qsl4"]
 [ext_resource type="Texture2D" uid="uid://djt24accfd5yd" path="res://assets/actors/characters/knight/SpriteSheet.png" id="1_wct5b"]
 [ext_resource type="PackedScene" uid="uid://c8v8ifflbi5en" path="res://scenes/components/health_component.tscn" id="2_oplc4"]
 [ext_resource type="PackedScene" uid="uid://dbjuo3x7kyk62" path="res://scenes/components/state_machine_component.tscn" id="2_s6vx4"]
+[ext_resource type="PackedScene" uid="uid://b0rw7moslg16y" path="res://scenes/effects/death_particles.tscn" id="3_5ck11"]
 [ext_resource type="PackedScene" uid="uid://baye6umh5at7r" path="res://scenes/components/animation_component.tscn" id="3_rvc6j"]
 [ext_resource type="PackedScene" uid="uid://qsx6ojs6f1uj" path="res://scenes/components/velocity_component.tscn" id="5_61blb"]
 [ext_resource type="PackedScene" uid="uid://dhgg1hxkth7vv" path="res://scenes/components/inventory_component.tscn" id="6_g5gmq"]
@@ -349,6 +350,7 @@ controller = NodePath("PlayerControllerComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_oplc4")]
 maxHealth = 5.0
+deathEffectScene = ExtResource("3_5ck11")
 
 [node name="AnimationComponent" parent="." node_paths=PackedStringArray("animationPlayer") instance=ExtResource("3_rvc6j")]
 animationPlayer = NodePath("AnimationPlayer")

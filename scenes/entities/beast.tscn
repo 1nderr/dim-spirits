@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://clecbo5ytkbla"]
+[gd_scene load_steps=33 format=3 uid="uid://clecbo5ytkbla"]
 
 [ext_resource type="PackedScene" uid="uid://bgtkonula3yss" path="res://scenes/components/hitbox_component.tscn" id="1_3y1oe"]
 [ext_resource type="PackedScene" uid="uid://ciflayd5f6nxw" path="res://scenes/ui/health_bar.tscn" id="1_an78j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://clxkqqah4jh6m" path="res://assets/actors/monsters/beast/Beast.png" id="1_so505"]
 [ext_resource type="PackedScene" uid="uid://baye6umh5at7r" path="res://scenes/components/animation_component.tscn" id="4_arr78"]
 [ext_resource type="PackedScene" uid="uid://bshlcopxpievi" path="res://scenes/components/entity_loot_component.tscn" id="4_eypj4"]
+[ext_resource type="PackedScene" uid="uid://b0rw7moslg16y" path="res://scenes/effects/death_particles.tscn" id="4_i3i21"]
 [ext_resource type="PackedScene" uid="uid://dbjuo3x7kyk62" path="res://scenes/components/state_machine_component.tscn" id="4_vmbgi"]
 [ext_resource type="PackedScene" uid="uid://qsx6ojs6f1uj" path="res://scenes/components/velocity_component.tscn" id="5_bhc1d"]
 [ext_resource type="PackedScene" uid="uid://cxegmxwnhyheu" path="res://scenes/effects/sprite_flash_effect.tscn" id="6_rtmud"]
@@ -217,6 +218,7 @@ healthComponent = NodePath("../HealthComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_f3dk6")]
 maxHealth = 3.0
+deathEffectScene = ExtResource("4_i3i21")
 
 [node name="EntityLootComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("4_eypj4")]
 healthComponent = NodePath("../HealthComponent")
@@ -253,7 +255,7 @@ rotation = -0.0126336
 
 [node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("10_xcwv2")]
 knockbackStrength = 100.0
-cameraShakeAmount = 0.35
+cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
 
 [node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("spriteColorEffect") instance=ExtResource("11_dv35k")]

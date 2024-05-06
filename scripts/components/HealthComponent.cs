@@ -7,7 +7,7 @@ public partial class HealthComponent : Node
 	[Signal] public delegate void DiedEventHandler(Vector2 position);
 
 	[Export] private float maxHealth = 10;
-	[Export] private PackedScene smokeEffectScene;
+	[Export] private PackedScene deathEffectScene;
 
 	private float currentHealth;
 
@@ -56,10 +56,11 @@ public partial class HealthComponent : Node
 			var position = new Vector2(parent.GlobalPosition.X, parent.GlobalPosition.Y - 8);
 			parent.Hide();
 
-			var smokeEffect = smokeEffectScene.Instantiate<SmokeEffect>();
-			parent.GetParent().AddChild(smokeEffect);
-			smokeEffect.GlobalPosition = position;
-			await ToSignal(smokeEffect.animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
+			var deathEffect = deathEffectScene.Instantiate<Node2D>();
+			parent.GetParent().AddChild(deathEffect);
+			deathEffect.GlobalPosition = position;
+			// await ToSignal(deathEffect.animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
+			await ToSignal(GetTree().CreateTimer(0.3f), Timer.SignalName.Timeout);
 
 			EmitSignal(SignalName.Died, position);
 

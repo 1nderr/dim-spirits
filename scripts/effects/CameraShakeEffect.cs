@@ -7,9 +7,9 @@ public partial class CameraShakeEffect : Node
 
   private GameCamera camera;
 
-  private float shakeDecay = 0.8f;
-  private Vector2 shakeMaxOffset = new Vector2(100, 75);
-  private float shakeMaxRotation = 0.1f;
+  private float shakeDecay = 1f;
+  private Vector2 shakeMaxOffset = new Vector2(100, 100);
+  private float shakeMaxRotation = 0.2f;
   private float currentTrauma = 0f;
   private float traumaStrength = 2f;
   private float noiseY = 0f;
