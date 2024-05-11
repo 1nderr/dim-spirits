@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dfc1406gxa2md"]
+[gd_scene load_steps=44 format=3 uid="uid://dfc1406gxa2md"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/Player.cs" id="1_2qsl4"]
 [ext_resource type="Texture2D" uid="uid://djt24accfd5yd" path="res://assets/actors/characters/knight/SpriteSheet.png" id="1_wct5b"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cekmpjqmoogjd" path="res://scenes/state/stunned_state.tscn" id="15_rd3k3"]
 [ext_resource type="PackedScene" uid="uid://bo11apsmsjh3p" path="res://scenes/components/interaction_component.tscn" id="15_wxmpo"]
 [ext_resource type="PackedScene" uid="uid://cw67r8seg6dla" path="res://scenes/state/item_state.tscn" id="18_d3ix7"]
+[ext_resource type="PackedScene" uid="uid://df1xjxxhe862e" path="res://scenes/effects/walk_particles.tscn" id="22_2tlnu"]
 
 [sub_resource type="Animation" id="Animation_mm5sw"]
 resource_name = "Attack_Down"
@@ -106,6 +107,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(0, 0, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_21tag"]
 resource_name = "Idle_Left"
@@ -121,6 +134,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Rect2(32, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_p7c6o"]
@@ -138,6 +163,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(48, 0, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_35pq8"]
 resource_name = "Idle_Down"
@@ -153,6 +190,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Rect2(16, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_rhw4f"]
@@ -172,6 +221,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(0, 16, 16, 16), Rect2(0, 32, 16, 16), Rect2(0, 48, 16, 16), Rect2(0, 0, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WalkParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -1)]
+}
 
 [sub_resource type="Animation" id="Animation_h350s"]
 resource_name = "Move_Left"
@@ -189,6 +262,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Rect2(32, 16, 16, 16), Rect2(32, 32, 16, 16), Rect2(32, 48, 16, 16), Rect2(32, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WalkParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vux8a"]
@@ -208,6 +305,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(48, 16, 16, 16), Rect2(48, 32, 16, 16), Rect2(48, 48, 16, 16), Rect2(48, 0, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WalkParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wa3ou"]
 resource_name = "Move_Up"
@@ -226,6 +347,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(16, 16, 16, 16), Rect2(16, 32, 16, 16), Rect2(16, 48, 16, 16), Rect2(16, 0, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WalkParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_fjsun"]
 length = 0.001
@@ -240,6 +385,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Rect2(16, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WalkParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_a45fq"]
@@ -414,6 +583,11 @@ shape = SubResource("CircleShape2D_6oask")
 [node name="InteractionComponent" parent="." instance=ExtResource("15_wxmpo")]
 target_position = Vector2(0, -15)
 collision_mask = 4
+
+[node name="WalkParticles" parent="." instance=ExtResource("22_2tlnu")]
+position = Vector2(0, -2)
+emitting = false
+direction = Vector2(0, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)

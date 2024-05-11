@@ -477,7 +477,7 @@ sources/1 = SubResource("TileSetAtlasSource_5u8p1")
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("cameraShakeEffect") instance=ExtResource("3_cvisc")]
 position = Vector2(-41, 53)
-zoom = Vector2(3.5, 3.5)
+zoom = Vector2(2.5, 2.5)
 cameraShakeEffect = NodePath("CameraShakeEffect")
 
 [node name="CameraShakeEffect" parent="GameCamera" instance=ExtResource("2_1nrdo")]
@@ -512,10 +512,4 @@ position = Vector2(664, 337)
 position = Vector2(672, 300)
 
 [node name="Beast" parent="Entities" instance=ExtResource("5_jokli")]
-position = Vector2(593, 341)
-
-[node name="Beast" parent="." instance=ExtResource("5_jokli")]
-position = Vector2(586, 370)
-
-[node name="Beast2" parent="." instance=ExtResource("5_jokli")]
-position = Vector2(613, 327)
+position = Vector2(591, 289)
