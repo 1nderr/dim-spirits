@@ -24,7 +24,7 @@ public partial class RollState : State
 
   public override void Update(double delta)
   {
-    rollVector = rollVector.Lerp(Vector2.Zero, 0.075f);
+    rollVector = rollVector.Lerp(Vector2.Zero, 0.05f);
     if (rollVector.Round() == Vector2.Zero)
     {
       Transition(StateType.Idle);

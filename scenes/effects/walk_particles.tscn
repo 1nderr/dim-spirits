@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bvpfr5m4yk1aw" path="res://assets/fx/smoke/smoke/Puff.png" id="1_bbn62"]
 
 [sub_resource type="Curve" id="Curve_ofxf0"]
-_data = [Vector2(0, 0.752145), 0.0, 0.0, 0, 0, Vector2(0.753117, 0.491897), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.498093), 0.0, 0.0, 0, 0, Vector2(0.753117, 0.79552), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_qp0b8"]
@@ -17,9 +17,8 @@ texture = ExtResource("1_bbn62")
 direction = Vector2(0, 1)
 spread = 0.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
 scale_amount_min = 0.5
+scale_amount_max = 0.9
 scale_amount_curve = SubResource("Curve_ofxf0")
-color = Color(1, 1, 1, 0.729412)
+color = Color(0.678431, 0.584314, 0.52549, 0.921569)
 color_ramp = SubResource("Gradient_qp0b8")
