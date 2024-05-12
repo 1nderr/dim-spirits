@@ -233,7 +233,6 @@ libraries = {
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_bhc1d")]
 maxSpeed = 50.0
-accelerationSmoothing = 20.0
 
 [node name="SpriteFlashEffect" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_rtmud")]
 sprite = NodePath("../Sprite2D")
@@ -254,7 +253,7 @@ rotation = -0.0126336
 [node name="Move" parent="StateMachineComponent" instance=ExtResource("11_x61vt")]
 
 [node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("10_xcwv2")]
-knockbackStrength = 100.0
+knockbackStrength = 75.0
 cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
 

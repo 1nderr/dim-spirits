@@ -725,7 +725,6 @@ libraries = {
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_61blb")]
 maxSpeed = 90.0
-accelerationSmoothing = 20.0
 
 [node name="SpriteFlashEffect" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_r7vq4")]
 sprite = NodePath("../Sprite2D")
@@ -749,11 +748,11 @@ initialState = NodePath("Idle")
 [node name="Move" parent="StateMachineComponent" instance=ExtResource("13_f00a5")]
 
 [node name="Roll" parent="StateMachineComponent" instance=ExtResource("10_818b7")]
-rollStrength = 100.0
+rollStrength = 90.0
 
 [node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("13_40q8o")]
 knockbackStrength = 100.0
-cameraShakeAmount = 0.35
+cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
 
 [node name="Attack" parent="StateMachineComponent" node_paths=PackedStringArray("weaponController") instance=ExtResource("14_5vqkn")]

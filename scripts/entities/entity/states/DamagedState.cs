@@ -22,6 +22,12 @@ public partial class DamagedState : State
     spriteFlashEffect.Flash();
     camera.Shake(cameraShakeAmount);
     knockbackVector = entity.hurtboxComponent.hitDirection * knockbackStrength;
+    entity.velocityComponent.maxSpeed = knockbackStrength;
+  }
+
+  public override void Exit()
+  {
+    entity.velocityComponent.ResetSpeed();
   }
 
   public override void Update(double delta)

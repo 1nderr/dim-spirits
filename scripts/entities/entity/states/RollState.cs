@@ -20,6 +20,12 @@ public partial class RollState : State
     entity.animationComponent.PlayRoll(entity.direction);
     direction = entity.direction;
     rollVector = direction * rollStrength;
+    entity.velocityComponent.maxSpeed = rollStrength;
+  }
+
+  public override void Exit()
+  {
+    entity.velocityComponent.ResetSpeed();
   }
 
   public override void Update(double delta)
