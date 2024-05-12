@@ -46,6 +46,7 @@ _data = {
 }
 
 [node name="DeathParticles" type="CPUParticles2D"]
+process_mode = 3
 emitting = false
 amount = 30
 lifetime = 1.25
@@ -63,7 +64,6 @@ initial_velocity_max = 40.0
 scale_amount_min = 0.5
 scale_amount_max = 0.85
 scale_amount_curve = SubResource("Curve_180rh")
-color = Color(0.8, 0, 0.227451, 1)
 color_ramp = SubResource("Gradient_lxy6c")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

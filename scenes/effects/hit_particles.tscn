@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://m1y2uh8rnrfl"]
+
+[ext_resource type="Script" path="res://scripts/effects/HitParticles.cs" id="2_s4wur"]
+
+[sub_resource type="Curve" id="Curve_d4flo"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_dhqq4"]
+offsets = PackedFloat32Array(0.769437, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="HitParticles" type="CPUParticles2D"]
+process_mode = 3
+position = Vector2(0, -8)
+emitting = false
+amount = 32
+lifetime = 0.75
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 1)
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 55.0
+initial_velocity_max = 70.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_d4flo")
+color_ramp = SubResource("Gradient_dhqq4")
+script = ExtResource("2_s4wur")

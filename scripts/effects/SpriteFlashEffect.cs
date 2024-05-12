@@ -10,6 +10,6 @@ public partial class SpriteFlashEffect : Node
 	public void Flash()
 	{
 		tween = CreateTween();
-		tween.TweenProperty(sprite, "modulate:v", 1, 0.2).From(15);
+		tween.TweenProperty(sprite, "modulate:v", 1, 0.2).From(30);
 	}
 }

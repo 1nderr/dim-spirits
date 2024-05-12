@@ -59,7 +59,6 @@ public partial class HealthComponent : Node
 			var deathEffect = deathEffectScene.Instantiate<Node2D>();
 			parent.GetParent().AddChild(deathEffect);
 			deathEffect.GlobalPosition = position;
-			// await ToSignal(deathEffect.animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
 			await ToSignal(GetTree().CreateTimer(0.3f), Timer.SignalName.Timeout);
 
 			EmitSignal(SignalName.Died, position);

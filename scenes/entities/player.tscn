@@ -750,10 +750,11 @@ initialState = NodePath("Idle")
 [node name="Roll" parent="StateMachineComponent" instance=ExtResource("10_818b7")]
 rollStrength = 90.0
 
-[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("13_40q8o")]
-knockbackStrength = 100.0
+[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect", "hitParticles") instance=ExtResource("13_40q8o")]
+knockbackStrength = 75.0
 cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
+hitParticles = NodePath("")
 
 [node name="Attack" parent="StateMachineComponent" node_paths=PackedStringArray("weaponController") instance=ExtResource("14_5vqkn")]
 weaponController = NodePath("../../WeaponController")

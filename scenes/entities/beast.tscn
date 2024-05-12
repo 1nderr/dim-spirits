@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://clecbo5ytkbla"]
+[gd_scene load_steps=34 format=3 uid="uid://clecbo5ytkbla"]
 
 [ext_resource type="PackedScene" uid="uid://bgtkonula3yss" path="res://scenes/components/hitbox_component.tscn" id="1_3y1oe"]
 [ext_resource type="PackedScene" uid="uid://ciflayd5f6nxw" path="res://scenes/ui/health_bar.tscn" id="1_an78j"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cekmpjqmoogjd" path="res://scenes/state/stunned_state.tscn" id="11_dv35k"]
 [ext_resource type="PackedScene" uid="uid://ckpxtbpe1ptn7" path="res://scenes/state/move_state.tscn" id="11_x61vt"]
 [ext_resource type="PackedScene" uid="uid://cfdca8cp0m5n2" path="res://scenes/components/hurtbox_component.tscn" id="12_v6ujj"]
+[ext_resource type="PackedScene" uid="uid://m1y2uh8rnrfl" path="res://scenes/effects/hit_particles.tscn" id="18_x3q3e"]
 
 [sub_resource type="Animation" id="Animation_jul88"]
 resource_name = "Idle_Down"
@@ -217,7 +218,7 @@ offset_bottom = -17.0
 healthComponent = NodePath("../HealthComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_f3dk6")]
-maxHealth = 3.0
+maxHealth = 5.0
 deathEffectScene = ExtResource("4_i3i21")
 
 [node name="EntityLootComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("4_eypj4")]
@@ -252,10 +253,11 @@ rotation = -0.0126336
 
 [node name="Move" parent="StateMachineComponent" instance=ExtResource("11_x61vt")]
 
-[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("10_xcwv2")]
-knockbackStrength = 75.0
+[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect", "hitParticles") instance=ExtResource("10_xcwv2")]
+knockbackStrength = 25.0
 cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
+hitParticles = NodePath("../../HitParticles")
 
 [node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("spriteColorEffect") instance=ExtResource("11_dv35k")]
 stunTime = 1.5
@@ -283,6 +285,8 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_tykua")
+
+[node name="HitParticles" parent="." instance=ExtResource("18_x3q3e")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
