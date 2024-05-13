@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b83862nf6wfki" path="res://scenes/effects/sprite_color_effect.tscn" id="6_hn2lx"]
 [ext_resource type="PackedScene" uid="uid://cxegmxwnhyheu" path="res://scenes/effects/sprite_flash_effect.tscn" id="6_r7vq4"]
 [ext_resource type="PackedScene" uid="uid://b6h1yrlygjdwx" path="res://scenes/components/player_controller_component.tscn" id="7_5xik8"]
-[ext_resource type="PackedScene" uid="uid://cqptgbr3ydvgr" path="res://scenes/weapons/weapon_controller.tscn" id="7_8pec8"]
-[ext_resource type="PackedScene" uid="uid://d3ihl4kwh282j" path="res://scenes/weapons/sword.tscn" id="8_p038u"]
+[ext_resource type="PackedScene" uid="uid://cqptgbr3ydvgr" path="res://scenes/attacks/attack_controller.tscn" id="7_8pec8"]
+[ext_resource type="PackedScene" uid="uid://d3ihl4kwh282j" path="res://scenes/attacks/sword.tscn" id="8_p038u"]
 [ext_resource type="PackedScene" uid="uid://dd2x2gq7retl" path="res://scenes/state/roll_state.tscn" id="10_818b7"]
 [ext_resource type="PackedScene" uid="uid://cwpm4b8gyqqgo" path="res://scenes/state/idle_state.tscn" id="12_o727p"]
 [ext_resource type="PackedScene" uid="uid://bmg28ccbfjx70" path="res://scenes/state/damaged_state.tscn" id="13_40q8o"]
@@ -40,6 +40,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RollParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RollParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_b0det"]
@@ -483,6 +507,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RollParticles:direction")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -1)]
+}
 
 [sub_resource type="Animation" id="Animation_a45fq"]
 resource_name = "Roll_Down"
@@ -738,8 +774,8 @@ color = Color(0.294118, 0.505882, 1, 1)
 
 [node name="InventoryComponent" parent="." instance=ExtResource("6_g5gmq")]
 
-[node name="WeaponController" parent="." instance=ExtResource("7_8pec8")]
-weaponScene = ExtResource("8_p038u")
+[node name="AttackController" parent="." instance=ExtResource("7_8pec8")]
+attackScene = ExtResource("8_p038u")
 
 [node name="StateMachineComponent" parent="." node_paths=PackedStringArray("initialState") instance=ExtResource("2_s6vx4")]
 initialState = NodePath("Idle")
@@ -756,8 +792,8 @@ knockbackStrength = 75.0
 cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
 
-[node name="Attack" parent="StateMachineComponent" node_paths=PackedStringArray("weaponController") instance=ExtResource("14_5vqkn")]
-weaponController = NodePath("../../WeaponController")
+[node name="Attack" parent="StateMachineComponent" node_paths=PackedStringArray("attackController") instance=ExtResource("14_5vqkn")]
+attackController = NodePath("../../AttackController")
 
 [node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("spriteColorEffect") instance=ExtResource("15_rd3k3")]
 stunTime = 1.5

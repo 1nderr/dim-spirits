@@ -2,7 +2,7 @@ using Godot;
 
 public partial class AttackState : State
 {
-  [Export] private WeaponController weaponController;
+  [Export] private AttackController attackController;
 
   private Entity entity;
 
@@ -14,7 +14,7 @@ public partial class AttackState : State
 
   public override async void Enter()
   {
-    weaponController.Attack(entity.direction);
+    attackController.Attack(entity.direction);
     entity.animationComponent.PlayAttack(entity.direction);
     await entity.animationComponent.WaitForAnimation();
     Transition(StateType.Idle);

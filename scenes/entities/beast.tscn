@@ -1,6 +1,5 @@
-[gd_scene load_steps=34 format=3 uid="uid://clecbo5ytkbla"]
+[gd_scene load_steps=32 format=3 uid="uid://clecbo5ytkbla"]
 
-[ext_resource type="PackedScene" uid="uid://bgtkonula3yss" path="res://scenes/components/hitbox_component.tscn" id="1_3y1oe"]
 [ext_resource type="PackedScene" uid="uid://ciflayd5f6nxw" path="res://scenes/ui/health_bar.tscn" id="1_an78j"]
 [ext_resource type="PackedScene" uid="uid://c8v8ifflbi5en" path="res://scenes/components/health_component.tscn" id="1_f3dk6"]
 [ext_resource type="Script" path="res://scripts/entities/entity/Entity.cs" id="1_ny7bq"]
@@ -188,9 +187,6 @@ _data = {
 "RESET": SubResource("Animation_h85hl")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hch0i"]
-radius = 8.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_8x0qj"]
 radius = 9.0
 
@@ -263,14 +259,6 @@ hitParticlesScene = ExtResource("18_x3q3e")
 [node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("spriteColorEffect") instance=ExtResource("11_dv35k")]
 stunTime = 1.5
 spriteColorEffect = NodePath("../../SpriteColorEffect")
-
-[node name="HitboxComponent" parent="." instance=ExtResource("1_3y1oe")]
-collision_mask = 1
-damage = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_hch0i")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("12_v6ujj")]
 collision_layer = 2
