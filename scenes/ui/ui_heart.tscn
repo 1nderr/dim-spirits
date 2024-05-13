@@ -83,7 +83,7 @@ script = ExtResource("2_u41lx")
 animationPlayer = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 texture = ExtResource("1_jnchn")
 hframes = 5
 

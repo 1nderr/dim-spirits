@@ -5,7 +5,7 @@ public partial class DamagedState : State
   [Export] private float knockbackStrength;
   [Export] private float cameraShakeAmount;
   [Export] private SpriteFlashEffect spriteFlashEffect;
-  [Export] private HitParticles hitParticles;
+  [Export] private PackedScene hitParticlesScene;
 
   private Entity entity;
   private Vector2 knockbackVector;
@@ -22,8 +22,10 @@ public partial class DamagedState : State
     entity.animationComponent.PlayIdle(entity.direction);
     spriteFlashEffect.Flash();
 
-    if (hitParticles != null)
+    if (hitParticlesScene != null)
     {
+      var hitParticles = hitParticlesScene.Instantiate<HitParticles>();
+      AddChild(hitParticles);
       hitParticles.Emit(entity.hurtboxComponent.hitDirection);
     }
 

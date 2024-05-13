@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://m1y2uh8rnrfl"]
+[gd_scene load_steps=7 format=3 uid="uid://m1y2uh8rnrfl"]
 
 [ext_resource type="Script" path="res://scripts/effects/HitParticles.cs" id="2_s4wur"]
 
@@ -10,7 +10,57 @@ point_count = 2
 offsets = PackedFloat32Array(0.769437, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="HitParticles" type="CPUParticles2D"]
+[sub_resource type="Animation" id="Animation_73gwh"]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2cgub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfwbx"]
+_data = {
+"Hit": SubResource("Animation_73gwh"),
+"RESET": SubResource("Animation_2cgub")
+}
+
+[node name="HitParticles" type="CPUParticles2D" node_paths=PackedStringArray("animationPlayer")]
 process_mode = 3
 position = Vector2(0, -8)
 emitting = false
@@ -33,3 +83,9 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_d4flo")
 color_ramp = SubResource("Gradient_dhqq4")
 script = ExtResource("2_s4wur")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hfwbx")
+}

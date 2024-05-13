@@ -219,6 +219,7 @@ healthComponent = NodePath("../HealthComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_f3dk6")]
 maxHealth = 5.0
+cameraShake = 0.4
 deathEffectScene = ExtResource("4_i3i21")
 
 [node name="EntityLootComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("4_eypj4")]
@@ -253,11 +254,11 @@ rotation = -0.0126336
 
 [node name="Move" parent="StateMachineComponent" instance=ExtResource("11_x61vt")]
 
-[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect", "hitParticles") instance=ExtResource("10_xcwv2")]
+[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("10_xcwv2")]
 knockbackStrength = 25.0
 cameraShakeAmount = 0.4
 spriteFlashEffect = NodePath("../../SpriteFlashEffect")
-hitParticles = NodePath("../../HitParticles")
+hitParticlesScene = ExtResource("18_x3q3e")
 
 [node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("spriteColorEffect") instance=ExtResource("11_dv35k")]
 stunTime = 1.5

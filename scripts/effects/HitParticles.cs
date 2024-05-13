@@ -2,9 +2,11 @@ using Godot;
 
 public partial class HitParticles : CpuParticles2D
 {
+  [Export] private AnimationPlayer animationPlayer;
+
   public void Emit(Vector2 direction)
   {
     Direction = direction;
-    Emitting = true;
+    animationPlayer.Play("Hit");
   }
 }

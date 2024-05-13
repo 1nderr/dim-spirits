@@ -6,14 +6,17 @@ public partial class HealthComponent : Node
 	[Signal] public delegate void HealthUpdatedEventHandler();
 	[Signal] public delegate void DiedEventHandler(Vector2 position);
 
-	[Export] private float maxHealth = 10;
+	[Export] private float maxHealth;
+	[Export] private float cameraShake;
 	[Export] private PackedScene deathEffectScene;
 
 	private float currentHealth;
+	private GameCamera camera;
 
 	public override void _Ready()
 	{
 		currentHealth = maxHealth;
+		camera = (GameCamera)GetTree().GetFirstNodeInGroup("camera");
 	}
 
 	public void Damage(float amount)
@@ -60,6 +63,8 @@ public partial class HealthComponent : Node
 			parent.GetParent().AddChild(deathEffect);
 			deathEffect.GlobalPosition = position;
 			await ToSignal(GetTree().CreateTimer(0.3f), Timer.SignalName.Timeout);
+
+			camera.Shake(cameraShake);
 
 			EmitSignal(SignalName.Died, position);
 
