@@ -10,18 +10,22 @@ public partial class AttackState : State
   {
     entity = (Entity)GetParent().GetParent();
     entity.hurtboxComponent.Hit += OnHit;
+    attackController.Done += OnDone;
   }
 
-  public override async void Enter()
+  public override void Enter()
   {
     attackController.Attack(entity.direction);
-    entity.animationComponent.PlayAttack(entity.direction);
-    await entity.animationComponent.WaitForAnimation();
-    Transition(StateType.Idle);
   }
 
   private void OnHit()
   {
+    attackController.Stop();
     Transition(StateType.Damaged);
+  }
+
+  private void OnDone()
+  {
+    Transition(StateType.Idle);
   }
 }

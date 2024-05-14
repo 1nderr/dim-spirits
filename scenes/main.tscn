@@ -512,4 +512,10 @@ position = Vector2(664, 337)
 position = Vector2(672, 300)
 
 [node name="Beast" parent="Entities" instance=ExtResource("5_jokli")]
-position = Vector2(591, 289)
+position = Vector2(539, 266)
+
+[node name="Beast" parent="." instance=ExtResource("5_jokli")]
+position = Vector2(486, 381)
+
+[node name="Beast2" parent="." instance=ExtResource("5_jokli")]
+position = Vector2(585, 348)

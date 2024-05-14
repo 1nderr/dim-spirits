@@ -15,7 +15,7 @@ public partial class Sword : Attack
 		hitboxComponent.Hit += OnHit;
 	}
 
-	public override void _Process(double delta)
+	public override async void _Process(double delta)
 	{
 		if (!isAttacking) { return; }
 
@@ -25,6 +25,13 @@ public partial class Sword : Attack
 			if (moveVector.Round() == Vector2.Zero)
 			{
 				isAttacking = false;
+
+				entity.animationComponent.PlayAttack(attackDirection);
+				PlayAnimation(attackDirection);
+				await ToSignal(animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
+
+				EmitSignal(SignalName.Done);
+				QueueFree();
 			}
 
 			entity.Velocity = entity.velocityComponent.CalculateBiasedVelocity(attackDirection, (float)delta, moveVector);
@@ -38,7 +45,6 @@ public partial class Sword : Attack
 		isAttacking = true;
 		attackDirection = direction;
 		moveVector = direction * 10;
-		PlayAnimation(direction);
 	}
 
 	public void PlayAnimation(Vector2 direction)

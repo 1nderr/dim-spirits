@@ -15,7 +15,6 @@ public partial class StunnedState : State
 
   public override async void Enter()
   {
-    GD.Print("stunned");
     entity.animationComponent.PlayIdle(entity.direction);
     spriteColorEffect.Set();
     entity.Velocity = Vector2.Zero;

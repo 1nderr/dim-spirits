@@ -19,6 +19,8 @@ public partial class DamagedState : State
 
   public override void Enter()
   {
+    entity.hurtboxComponent.isInvincible = true;
+
     entity.animationComponent.PlayIdle(entity.direction);
     spriteFlashEffect.Flash();
 
@@ -36,6 +38,7 @@ public partial class DamagedState : State
 
   public override void Exit()
   {
+    entity.hurtboxComponent.isInvincible = false;
     entity.velocityComponent.ResetSpeed();
   }
 

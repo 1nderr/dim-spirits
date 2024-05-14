@@ -12,6 +12,11 @@ public partial class PlayerController : Controller
     return Input.IsActionJustPressed("attack");
   }
 
+  public override Entity GetAttackTarget()
+  {
+    return null;
+  }
+
   public override bool GetRollInput()
   {
     return Input.IsActionJustPressed("roll");
