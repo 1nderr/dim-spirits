@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dfc1406gxa2md"]
+[gd_scene load_steps=46 format=3 uid="uid://dfc1406gxa2md"]
 
 [ext_resource type="Script" path="res://scripts/entities/player/Player.cs" id="1_2qsl4"]
 [ext_resource type="Texture2D" uid="uid://djt24accfd5yd" path="res://assets/actors/characters/knight/SpriteSheet.png" id="1_wct5b"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cw67r8seg6dla" path="res://scenes/state/item_state.tscn" id="18_d3ix7"]
 [ext_resource type="PackedScene" uid="uid://df1xjxxhe862e" path="res://scenes/effects/walk_particles.tscn" id="22_2tlnu"]
 [ext_resource type="PackedScene" uid="uid://b4f5m1htp420r" path="res://scenes/effects/roll_particles.tscn" id="23_iki4t"]
+[ext_resource type="PackedScene" uid="uid://bf6cch2n7pf0k" path="res://scenes/effects/step_particles.tscn" id="23_qtfpy"]
 
 [sub_resource type="Animation" id="Animation_mm5sw"]
 resource_name = "Attack_Down"
@@ -40,6 +41,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Rect2(64, 0, 16, 16), Rect2(80, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StepParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_b0det"]
@@ -58,6 +83,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(64, 16, 16, 16), Rect2(80, 16, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StepParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_sg6d6"]
 resource_name = "Attack_Right"
@@ -75,6 +124,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [Rect2(96, 16, 16, 16), Rect2(112, 16, 16, 16)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StepParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_pr25i"]
 resource_name = "Attack_Up"
@@ -91,6 +164,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Rect2(96, 0, 16, 16), Rect2(112, 0, 16, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StepParticles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StepParticles:direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ydca2"]
@@ -543,6 +640,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [Vector2(0, -1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StepParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StepParticles:direction")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
 
 [sub_resource type="Animation" id="Animation_a45fq"]
 resource_name = "Roll_Down"
@@ -841,6 +962,10 @@ collision_mask = 4
 position = Vector2(0, -2)
 emitting = false
 direction = Vector2(0, 0)
+
+[node name="StepParticles" parent="." instance=ExtResource("23_qtfpy")]
+position = Vector2(0, -4)
+direction = Vector2(0, -1)
 
 [node name="RollParticles" parent="." instance=ExtResource("23_iki4t")]
 position = Vector2(0, -4)

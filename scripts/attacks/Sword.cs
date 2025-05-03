@@ -3,17 +3,10 @@ using System;
 
 public partial class Sword : Attack
 {
-	[Export] private HitboxComponent hitboxComponent;
-
 	private bool isAttacking = false;
 	private Vector2 moveVector = Vector2.Zero;
 	private Vector2 attackDirection = Vector2.Zero;
 	private Entity entity;
-
-	public override void _Ready()
-	{
-		hitboxComponent.Hit += OnHit;
-	}
 
 	public override async void _Process(double delta)
 	{
@@ -66,12 +59,5 @@ public partial class Sword : Attack
 		{
 			animationPlayer.Play("Swing_Down");
 		}
-	}
-
-	private async void OnHit()
-	{
-		GetTree().Paused = true;
-		await ToSignal(GetTree().CreateTimer(0.05f), Timer.SignalName.Timeout);
-		GetTree().Paused = false;
 	}
 }

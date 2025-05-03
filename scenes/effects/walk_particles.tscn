@@ -20,5 +20,5 @@ gravity = Vector2(0, 0)
 scale_amount_min = 0.5
 scale_amount_max = 0.9
 scale_amount_curve = SubResource("Curve_ofxf0")
-color = Color(0.678431, 0.584314, 0.52549, 0.921569)
+color = Color(1, 1, 1, 0.921569)
 color_ramp = SubResource("Gradient_qp0b8")

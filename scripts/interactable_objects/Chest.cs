@@ -14,7 +14,7 @@ public partial class Chest : InteractableObject
 		itemStore = GetNode<ItemStore>("/root/ItemStore");
 	}
 
-	public override async void Interact(Node interactor)
+	public override void Interact(Node interactor)
 	{
 		if (!interactable || interactor is not Player) { return; }
 		var player = (Player)interactor;
@@ -24,9 +24,5 @@ public partial class Chest : InteractableObject
 		animationPlayer.Play("Open");
 
 		player.inventoryComponent.items.Add(itemId);
-
-		GetTree().Paused = true;
-		await ToSignal(animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
-		GetTree().Paused = false;
 	}
 }

@@ -5,10 +5,17 @@ public partial class Charge : Attack
   private const float CHARGE_TIME = 2f;
   private const float CHARGE_DISTANCE = 750;
 
+  [Export] private CollisionShape2D collider;
+
   private Entity entity;
   private bool isCharging = false;
   private Vector2 chargeVector = Vector2.Zero;
   private Vector2 chargeDirection = Vector2.Zero;
+
+  public override void _Ready()
+  {
+    collider.Disabled = true;
+  }
 
   public override async void Use(Vector2 direction, Entity entity)
   {
@@ -18,7 +25,9 @@ public partial class Charge : Attack
 
     await ToSignal(GetTree().CreateTimer(CHARGE_TIME), Timer.SignalName.Timeout);
 
+    collider.Disabled = false;
     isCharging = true;
+    this.entity.hurtboxComponent.isInvincible = false;
 
     var target = entity.controller.GetAttackTarget().GlobalPosition;
     chargeDirection = GlobalPosition.DirectionTo(target).Normalized();
@@ -36,7 +45,6 @@ public partial class Charge : Attack
       if (chargeVector.Round() == Vector2.Zero)
       {
         isCharging = false;
-        this.entity.hurtboxComponent.isInvincible = false;
         EmitSignal(SignalName.Done);
         QueueFree();
       }

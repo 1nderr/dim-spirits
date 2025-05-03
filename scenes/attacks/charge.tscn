@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh6vy"]
 size = Vector2(18, 18)
 
-[node name="Charge" type="Node2D"]
+[node name="Charge" type="Node2D" node_paths=PackedStringArray("collider")]
 script = ExtResource("1_dejyd")
+collider = NodePath("HitboxComponent/CollisionShape2D")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("1_45m0t")]
 position = Vector2(0, -8)
@@ -16,3 +17,4 @@ damage = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_lh6vy")
+disabled = true

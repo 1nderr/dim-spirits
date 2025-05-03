@@ -10,6 +10,7 @@ public partial class DamagedState : State
   private Entity entity;
   private Vector2 knockbackVector;
   private GameCamera camera;
+  private bool isHit = false;
 
   public override void _Ready()
   {
@@ -17,9 +18,13 @@ public partial class DamagedState : State
     camera = (GameCamera)GetTree().GetFirstNodeInGroup("camera");
   }
 
-  public override void Enter()
+  public async override void Enter()
   {
     entity.hurtboxComponent.isInvincible = true;
+
+    Engine.TimeScale = 0.05;
+    await ToSignal(GetTree().CreateTimer(0.0075f), Timer.SignalName.Timeout);
+    Engine.TimeScale = 1;
 
     entity.animationComponent.PlayIdle(entity.direction);
     spriteFlashEffect.Flash();
@@ -34,17 +39,23 @@ public partial class DamagedState : State
     camera.Shake(cameraShakeAmount);
     knockbackVector = entity.hurtboxComponent.hitDirection * knockbackStrength;
     entity.velocityComponent.maxSpeed = knockbackStrength;
+
+    isHit = true;
   }
 
   public override void Exit()
   {
+    isHit = false;
     entity.hurtboxComponent.isInvincible = false;
     entity.velocityComponent.ResetSpeed();
   }
 
   public override void Update(double delta)
   {
+    if (!isHit) { return; }
+
     knockbackVector = knockbackVector.Lerp(Vector2.Zero, 0.075f);
+
     if (knockbackVector.Round() == Vector2.Zero)
     {
       Transition(StateType.Idle);

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4f5m1htp420r"]
+[gd_scene load_steps=4 format=3 uid="uid://bf6cch2n7pf0k"]
 
-[ext_resource type="Texture2D" uid="uid://bvpfr5m4yk1aw" path="res://assets/fx/smoke/smoke/Puff.png" id="1_exa26"]
+[ext_resource type="Texture2D" uid="uid://bvpfr5m4yk1aw" path="res://assets/fx/smoke/smoke/Puff.png" id="1_2wghf"]
 
 [sub_resource type="Curve" id="Curve_5l8lk"]
 _data = [Vector2(0, 0.50429), 0.0, 0.0, 0, 0, Vector2(0.758105, 1), 0.0, 0.0, 0, 0]
@@ -10,16 +10,18 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.997319)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="RollParticles" type="CPUParticles2D"]
+[node name="StepParticles" type="CPUParticles2D"]
 emitting = false
 amount = 1
 lifetime = 0.45
 one_shot = true
-texture = ExtResource("1_exa26")
+texture = ExtResource("1_2wghf")
 spread = 0.0
 gravity = Vector2(0, 0)
-scale_amount_min = 1.25
-scale_amount_max = 1.25
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
 scale_amount_curve = SubResource("Curve_5l8lk")
-color = Color(1, 1, 1, 0.921569)
+color = Color(0.988235, 0.980392, 0.976471, 0.921569)
 color_ramp = SubResource("Gradient_fjdtl")

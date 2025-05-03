@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c34rudopao5g8" path="res://assets/items/weapons/bigsword/Sprite.png" id="4_ywhwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tfvn"]
-size = Vector2(35, 20)
+size = Vector2(35, 13)
 
 [sub_resource type="Animation" id="Animation_ge5gb"]
 length = 0.001
@@ -744,9 +744,8 @@ _data = {
 "Slash_Reverse": SubResource("Animation_xv4fd")
 }
 
-[node name="Sword" type="Node2D" node_paths=PackedStringArray("hitboxComponent", "animationPlayer")]
+[node name="Sword" type="Node2D" node_paths=PackedStringArray("animationPlayer")]
 script = ExtResource("1_1i1ll")
-hitboxComponent = NodePath("HitboxComponent")
 animationPlayer = NodePath("SwordAnimationPlayer")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
