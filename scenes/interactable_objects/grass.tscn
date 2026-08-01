@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://del4yuuwjkv5m"]
 
 [ext_resource type="Texture2D" uid="uid://bpdytk6pyuk6p" path="res://assets/tiles/tilesets/TilesetNature.png" id="1_71pqo"]
-[ext_resource type="Script" path="res://scripts/interactable_objects/Grass.cs" id="1_pdvh2"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/grass.gd" id="1_pdvh2"]
 [ext_resource type="PackedScene" uid="uid://dlklc476ikp7f" path="res://scenes/components/loot_component.tscn" id="2_r1gly"]
 [ext_resource type="PackedScene" uid="uid://dno1eqh0g7gkl" path="res://scenes/components/interaction_area_component.tscn" id="2_xhlgy"]
 
@@ -11,11 +11,11 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ashy2"]
 size = Vector2(16, 14)
 
-[node name="Grass" type="StaticBody2D" node_paths=PackedStringArray("lootComponent")]
+[node name="Grass" type="StaticBody2D" node_paths=PackedStringArray("loot_component")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_pdvh2")
-lootComponent = NodePath("LootComponent")
+loot_component = NodePath("LootComponent")
 
 [node name="LootComponent" parent="." instance=ExtResource("2_r1gly")]
 

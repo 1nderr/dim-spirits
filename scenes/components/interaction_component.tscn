@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bo11apsmsjh3p"]
 
-[ext_resource type="Script" path="res://scripts/components/InteractionComponent.cs" id="1_2ds82"]
+[ext_resource type="Script" path="res://scripts/components/interaction_component.gd" id="1_2ds82"]
 
 [node name="InteractionComponent" type="RayCast2D"]
 target_position = Vector2(0, -30)

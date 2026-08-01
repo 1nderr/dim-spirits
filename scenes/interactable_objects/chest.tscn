@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://byrqf8odupt22"]
 
-[ext_resource type="Script" path="res://scripts/interactable_objects/Chest.cs" id="1_of5e6"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/chest.gd" id="1_of5e6"]
 [ext_resource type="Texture2D" uid="uid://bi8cnxthtnm5n" path="res://assets/tiles/tilesets/TilesetElement.png" id="2_lksss"]
 [ext_resource type="PackedScene" uid="uid://dno1eqh0g7gkl" path="res://scenes/components/interaction_area_component.tscn" id="3_n6l68"]
 
@@ -122,13 +122,13 @@ _data = {
 "RESET": SubResource("Animation_xbgb1")
 }
 
-[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("itemSprite", "animationPlayer") groups=["Chests"]]
+[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("item_sprite", "animation_player") groups=["Chests"]]
 process_mode = 3
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_of5e6")
-itemSprite = NodePath("ItemSprite")
-animationPlayer = NodePath("AnimationPlayer")
+item_sprite = NodePath("ItemSprite")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="ChestSprite" type="Sprite2D" parent="."]
 texture_filter = 1

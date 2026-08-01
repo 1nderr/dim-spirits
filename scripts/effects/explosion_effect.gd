@@ -1,0 +1,2 @@
+class_name ExplosionEffect
+extends Node2D

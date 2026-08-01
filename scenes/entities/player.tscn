@@ -1,6 +1,6 @@
 [gd_scene load_steps=46 format=3 uid="uid://dfc1406gxa2md"]
 
-[ext_resource type="Script" path="res://scripts/entities/player/Player.cs" id="1_2qsl4"]
+[ext_resource type="Script" path="res://scripts/entities/player/player.gd" id="1_2qsl4"]
 [ext_resource type="Texture2D" uid="uid://djt24accfd5yd" path="res://assets/actors/characters/knight/SpriteSheet.png" id="1_wct5b"]
 [ext_resource type="PackedScene" uid="uid://c8v8ifflbi5en" path="res://scenes/components/health_component.tscn" id="2_oplc4"]
 [ext_resource type="PackedScene" uid="uid://dbjuo3x7kyk62" path="res://scenes/components/state_machine_component.tscn" id="2_s6vx4"]
@@ -880,24 +880,24 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_gn3ok"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("healthComponent", "inventoryComponent", "animationComponent", "hurtboxComponent", "velocityComponent", "controller")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_component", "inventory_component", "animation_component", "hurtbox_component", "velocity_component", "controller")]
 collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_2qsl4")
-healthComponent = NodePath("HealthComponent")
-inventoryComponent = NodePath("InventoryComponent")
-animationComponent = NodePath("AnimationComponent")
-hurtboxComponent = NodePath("HurtboxComponent")
-velocityComponent = NodePath("VelocityComponent")
+health_component = NodePath("HealthComponent")
+inventory_component = NodePath("InventoryComponent")
+animation_component = NodePath("AnimationComponent")
+hurtbox_component = NodePath("HurtboxComponent")
+velocity_component = NodePath("VelocityComponent")
 controller = NodePath("PlayerControllerComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_oplc4")]
-maxHealth = 10.0
-cameraShake = 0.4
-deathEffectScene = ExtResource("3_5ck11")
+max_health = 10.0
+camera_shake = 0.4
+death_effect_scene = ExtResource("3_5ck11")
 
-[node name="AnimationComponent" parent="." node_paths=PackedStringArray("animationPlayer") instance=ExtResource("3_rvc6j")]
-animationPlayer = NodePath("AnimationPlayer")
+[node name="AnimationComponent" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("3_rvc6j")]
+animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationComponent"]
 root_node = NodePath("../..")
@@ -906,7 +906,7 @@ libraries = {
 }
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_61blb")]
-maxSpeed = 90.0
+max_speed = 90.0
 
 [node name="SpriteFlashEffect" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("6_r7vq4")]
 sprite = NodePath("../Sprite2D")
@@ -920,35 +920,35 @@ color = Color(0.294118, 0.505882, 1, 1)
 [node name="InventoryComponent" parent="." instance=ExtResource("6_g5gmq")]
 
 [node name="AttackController" parent="." instance=ExtResource("7_8pec8")]
-attackScene = ExtResource("8_p038u")
+attack_scene = ExtResource("8_p038u")
 
-[node name="StateMachineComponent" parent="." node_paths=PackedStringArray("initialState") instance=ExtResource("2_s6vx4")]
-initialState = NodePath("Idle")
+[node name="StateMachineComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("2_s6vx4")]
+initial_state = NodePath("Idle")
 
 [node name="Idle" parent="StateMachineComponent" instance=ExtResource("12_o727p")]
 
 [node name="Move" parent="StateMachineComponent" instance=ExtResource("13_f00a5")]
 
 [node name="Roll" parent="StateMachineComponent" instance=ExtResource("10_818b7")]
-rollStrength = 90.0
+roll_strength = 90.0
 
-[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("spriteFlashEffect") instance=ExtResource("13_40q8o")]
-knockbackStrength = 75.0
-cameraShakeAmount = 0.4
-spriteFlashEffect = NodePath("../../SpriteFlashEffect")
+[node name="Damaged" parent="StateMachineComponent" node_paths=PackedStringArray("sprite_flash_effect") instance=ExtResource("13_40q8o")]
+knockback_strength = 75.0
+camera_shake_amount = 0.4
+sprite_flash_effect = NodePath("../../SpriteFlashEffect")
 
-[node name="Attack" parent="StateMachineComponent" node_paths=PackedStringArray("attackController") instance=ExtResource("14_5vqkn")]
-attackController = NodePath("../../AttackController")
+[node name="Attack" parent="StateMachineComponent" node_paths=PackedStringArray("attack_controller") instance=ExtResource("14_5vqkn")]
+attack_controller = NodePath("../../AttackController")
 
-[node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("spriteColorEffect") instance=ExtResource("15_rd3k3")]
-stunTime = 1.5
-spriteColorEffect = NodePath("../../SpriteColorEffect")
+[node name="Stunned" parent="StateMachineComponent" node_paths=PackedStringArray("sprite_color_effect") instance=ExtResource("15_rd3k3")]
+stun_time = 1.5
+sprite_color_effect = NodePath("../../SpriteColorEffect")
 
 [node name="Item" parent="StateMachineComponent" instance=ExtResource("18_d3ix7")]
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("14_y3j67")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("14_y3j67")]
 collision_layer = 1
-healthComponent = NodePath("../HealthComponent")
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -7)

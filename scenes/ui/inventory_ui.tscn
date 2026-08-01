@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddrsd1y1pgdip"]
 
-[ext_resource type="Script" path="res://scripts/ui/InventoryUi.cs" id="1_xqjdq"]
+[ext_resource type="Script" path="res://scripts/ui/inventory_ui.gd" id="1_xqjdq"]
 [ext_resource type="PackedScene" uid="uid://cmh3xt27plcxe" path="res://scenes/ui/inventory_card.tscn" id="2_2lhd8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3fa4"]
@@ -14,11 +14,11 @@ corner_radius_bottom_left = 5
 [sub_resource type="LabelSettings" id="LabelSettings_j4rvq"]
 font_size = 20
 
-[node name="InventoryUI" type="CanvasLayer" node_paths=PackedStringArray("gridContainer")]
+[node name="InventoryUI" type="CanvasLayer" node_paths=PackedStringArray("grid_container")]
 process_mode = 3
 script = ExtResource("1_xqjdq")
-inventoryCardScene = ExtResource("2_2lhd8")
-gridContainer = NodePath("MarginContainer/MarginContainer/MarginContainer/GridContainer")
+inventory_card_scene = ExtResource("2_2lhd8")
+grid_container = NodePath("MarginContainer/MarginContainer/MarginContainer/GridContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 7

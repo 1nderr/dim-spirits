@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dranm8b5q4gn4"]
 
 [ext_resource type="PackedScene" uid="uid://bgtkonula3yss" path="res://scenes/components/hitbox_component.tscn" id="1_45m0t"]
-[ext_resource type="Script" path="res://scripts/attacks/Charge.cs" id="1_dejyd"]
+[ext_resource type="Script" path="res://scripts/attacks/charge.gd" id="1_dejyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lh6vy"]
 size = Vector2(18, 18)

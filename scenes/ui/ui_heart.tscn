@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bv2gv2n1jc4h1"]
 
 [ext_resource type="Texture2D" uid="uid://da720v7tslvgi" path="res://assets/hud/heart.png" id="1_jnchn"]
-[ext_resource type="Script" path="res://scripts/ui/UiHeart.cs" id="2_u41lx"]
+[ext_resource type="Script" path="res://scripts/ui/ui_heart.gd" id="2_u41lx"]
 
 [sub_resource type="Animation" id="Animation_72j8j"]
 resource_name = "Empty"
@@ -74,13 +74,13 @@ _data = {
 "RESET": SubResource("Animation_ney75")
 }
 
-[node name="UiHeart" type="Control" node_paths=PackedStringArray("animationPlayer")]
+[node name="UiHeart" type="Control" node_paths=PackedStringArray("animation_player")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_u41lx")
-animationPlayer = NodePath("AnimationPlayer")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

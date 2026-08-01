@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bwrgxlkowhkbl"]
 
-[ext_resource type="Script" path="res://scripts/interactable_objects/ExplodableObject.cs" id="1_m4eis"]
+[ext_resource type="Script" path="res://scripts/interactable_objects/explodable_object.gd" id="1_m4eis"]
 [ext_resource type="PackedScene" uid="uid://db1ahfoj2ryf5" path="res://scenes/effects/smoke_effect.tscn" id="2_78xa6"]
 [ext_resource type="PackedScene" uid="uid://dno1eqh0g7gkl" path="res://scenes/components/interaction_area_component.tscn" id="3_egs7h"]
 [ext_resource type="PackedScene" uid="uid://dlklc476ikp7f" path="res://scenes/components/loot_component.tscn" id="3_hpaea"]
@@ -12,15 +12,15 @@ radius = 17.0294
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1y35"]
 size = Vector2(4.43579, 12.2143)
 
-[node name="ExplodableBoulder" type="StaticBody2D" node_paths=PackedStringArray("lootComponent")]
+[node name="ExplodableBoulder" type="StaticBody2D" node_paths=PackedStringArray("loot_component")]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_m4eis")
-breakEffectScene = ExtResource("2_78xa6")
-lootComponent = NodePath("LootComponent")
+break_effect_scene = ExtResource("2_78xa6")
+loot_component = NodePath("LootComponent")
 
 [node name="LootComponent" parent="." instance=ExtResource("3_hpaea")]
-dropChance = 1.0
+drop_chance = 1.0
 
 [node name="ObjectHurtboxComponent" parent="." instance=ExtResource("3_egs7h")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://db1ahfoj2ryf5"]
 
 [ext_resource type="Texture2D" uid="uid://cql5u0xbwr2vo" path="res://assets/fx/smoke/smoke/SpriteSheet.png" id="1_nv6qn"]
-[ext_resource type="Script" path="res://scripts/effects/SmokeEffect.cs" id="2_umsrj"]
+[ext_resource type="Script" path="res://scripts/effects/smoke_effect.gd" id="2_umsrj"]
 
 [sub_resource type="Animation" id="Animation_7uaef"]
 length = 0.001
@@ -54,12 +54,12 @@ _data = {
 "Smoke": SubResource("Animation_oh13n")
 }
 
-[node name="SmokeEffect" type="Sprite2D" node_paths=PackedStringArray("animationPlayer")]
+[node name="SmokeEffect" type="Sprite2D" node_paths=PackedStringArray("animation_player")]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_nv6qn")
 hframes = 6
 script = ExtResource("2_umsrj")
-animationPlayer = NodePath("AnimationPlayer")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

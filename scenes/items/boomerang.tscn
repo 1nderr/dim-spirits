@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvoe6hngt5xxn"]
 
 [ext_resource type="PackedScene" uid="uid://qsx6ojs6f1uj" path="res://scenes/components/velocity_component.tscn" id="1_nphy1"]
-[ext_resource type="Script" path="res://scripts/items/Boomerang.cs" id="1_r8fni"]
+[ext_resource type="Script" path="res://scripts/items/boomerang.gd" id="1_r8fni"]
 [ext_resource type="Texture2D" uid="uid://rdidg2268u54" path="res://assets/items/weapons/axetool/Sprite.png" id="3_fwavq"]
 [ext_resource type="PackedScene" uid="uid://bgtkonula3yss" path="res://scenes/components/hitbox_component.tscn" id="3_s8x8o"]
 
@@ -30,14 +30,14 @@ _data = {
 "Spin": SubResource("Animation_6853q")
 }
 
-[node name="Boomerang" type="Node2D" node_paths=PackedStringArray("velocityComponent", "hitboxComponent", "timer")]
+[node name="Boomerang" type="Node2D" node_paths=PackedStringArray("velocity_component", "hitbox_component", "timer")]
 script = ExtResource("1_r8fni")
-velocityComponent = NodePath("VelocityComponent")
-hitboxComponent = NodePath("HitboxComponent")
+velocity_component = NodePath("VelocityComponent")
+hitbox_component = NodePath("HitboxComponent")
 timer = NodePath("Timer")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("1_nphy1")]
-maxSpeed = 150.0
+max_speed = 150.0
 accelerationSmoothing = 50.0
 
 [node name="Timer" type="Timer" parent="."]
@@ -47,7 +47,7 @@ autostart = true
 
 [node name="HitboxComponent" parent="." instance=ExtResource("3_s8x8o")]
 collision_mask = 7
-canStun = true
+can_stun = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_g480b")

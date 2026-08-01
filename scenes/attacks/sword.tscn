@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://d3ihl4kwh282j"]
 
-[ext_resource type="Script" path="res://scripts/attacks/Sword.cs" id="1_1i1ll"]
-[ext_resource type="Script" path="res://scripts/components/HitboxComponent.cs" id="2_v0w63"]
+[ext_resource type="Script" path="res://scripts/attacks/sword.gd" id="1_1i1ll"]
+[ext_resource type="Script" path="res://scripts/components/hitbox_component.gd" id="2_v0w63"]
 [ext_resource type="Texture2D" uid="uid://dak0tw8u6ljbq" path="res://assets/fx/slashfx/slashcurved/SpriteSheet.png" id="3_ih7kx"]
 [ext_resource type="Texture2D" uid="uid://c34rudopao5g8" path="res://assets/items/weapons/bigsword/Sprite.png" id="4_ywhwc"]
 
@@ -744,9 +744,9 @@ _data = {
 "Slash_Reverse": SubResource("Animation_xv4fd")
 }
 
-[node name="Sword" type="Node2D" node_paths=PackedStringArray("animationPlayer")]
+[node name="Sword" type="Node2D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_1i1ll")
-animationPlayer = NodePath("SwordAnimationPlayer")
+animation_player = NodePath("SwordAnimationPlayer")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
 collision_layer = 0

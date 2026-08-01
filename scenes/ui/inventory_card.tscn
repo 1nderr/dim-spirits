@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmh3xt27plcxe"]
 
-[ext_resource type="Script" path="res://scripts/ui/InventoryCard.cs" id="1_jh32d"]
+[ext_resource type="Script" path="res://scripts/ui/inventory_card.gd" id="1_jh32d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_st8ad"]
 bg_color = Color(0, 0, 0, 1)
@@ -14,7 +14,7 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="InventoryCard" type="Panel" node_paths=PackedStringArray("itemSprite")]
+[node name="InventoryCard" type="Panel" node_paths=PackedStringArray("item_sprite")]
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_st8ad")
 script = ExtResource("1_jh32d")
-itemSprite = NodePath("Sprite2D")
+item_sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 32)

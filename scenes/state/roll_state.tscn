@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dd2x2gq7retl"]
 
-[ext_resource type="Script" path="res://scripts/entities/entity/states/RollState.cs" id="1_m1vru"]
+[ext_resource type="Script" path="res://scripts/entities/entity/states/roll_state.gd" id="1_m1vru"]
 
 [node name="Roll" type="Node2D"]
 script = ExtResource("1_m1vru")

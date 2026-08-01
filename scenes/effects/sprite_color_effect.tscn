@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b83862nf6wfki"]
 
-[ext_resource type="Script" path="res://scripts/effects/SpriteColorEffect.cs" id="1_akvk2"]
+[ext_resource type="Script" path="res://scripts/effects/sprite_color_effect.gd" id="1_akvk2"]
 
 [node name="SpriteColorEffect" type="Node"]
 script = ExtResource("1_akvk2")
