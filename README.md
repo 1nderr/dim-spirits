@@ -45,4 +45,4 @@ is386
 
 ### Art
 
-UNKNOWN
+[Pixel Boy](https://pixel-boy.itch.io/ninja-adventure-asset-pack)
