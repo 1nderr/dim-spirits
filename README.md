@@ -41,7 +41,7 @@ Chests open only when you are standing below one and facing up.
 
 ### Programming
 
-is386
+1nder
 
 ### Art
 
